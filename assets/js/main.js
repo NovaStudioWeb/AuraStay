@@ -1,22 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Cargar Header y Footer
-    fetch('assets/components/header.html').then(response => response.text()).then(data => {
-        document.getElementById('header-container').innerHTML = data;
-    });
+    
+    // 1. Cargar Header con lógica de scroll integrada
+    fetch('assets/components/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+            
+            // Inicializamos el scroll justo después de cargar el header
+            initHeaderScroll();
+        })
+        .catch(err => console.error('Error cargando el header:', err));
 
-    fetch('assets/components/footer.html').then(response => response.text()).then(data => {
-        document.getElementById('footer-container').innerHTML = data;
-    });
+    // 2. Cargar Footer
+    fetch('assets/components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        })
+        .catch(err => console.error('Error cargando el footer:', err));
 
-    // Efecto de scroll para el header
-    window.addEventListener('scroll', () => {
+    // 3. Función para el efecto de scroll
+    function initHeaderScroll() {
         const header = document.querySelector('.main-header');
+        
+        // Ejecutar una vez al cargar por si la página ya tiene scroll
+        handleScroll(header);
+
+        window.addEventListener('scroll', () => {
+            handleScroll(header);
+        });
+    }
+
+    function handleScroll(header) {
+        if (!header) return;
+
         if (window.scrollY > 50) {
-            header.style.padding = '10px 0';
-            header.style.background = 'rgba(255,255,255,0.95)';
+            header.classList.add('header-scrolled');
         } else {
-            header.style.padding = '20px 0';
-            header.style.background = '#fff';
+            header.classList.remove('header-scrolled');
         }
-    });
+    }
 });
