@@ -303,53 +303,123 @@ img {
 .disclaimer { margin-top: 20px; font-size: 0.75rem; color: var(--text-muted); }
 
 /* ==========================================================================
-   8. FOOTER "MIDNIGHT"
+   8. FOOTER REPARADO Y OPTIMIZADO
    ========================================================================== */
 .main-footer { 
     background: var(--midnight); 
     color: rgba(255,255,255,0.7); 
-    padding: 80px 0 40px; 
+    padding: 80px 0 0; /* Quitamos padding bottom para que footer-bottom pegue abajo */
 }
 
 .footer-grid { 
     display: grid; 
-    grid-template-columns: 2fr 1fr 1fr 1.5fr; 
-    gap: 60px; 
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr; 
+    gap: 40px; 
+    align-items: start; /* Asegura que todos los títulos h4 estén alineados arriba */
+    padding-bottom: 60px;
 }
 
-.footer-brand h4 { color: var(--white); margin-bottom: 20px; font-size: 1.8rem; letter-spacing: 2px; }
-.footer-links h4 { color: var(--white); margin-bottom: 25px; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-.footer-links ul { list-style: none; }
-.footer-links ul li { margin-bottom: 12px; }
-.footer-links a { color: inherit; text-decoration: none; transition: 0.3s; }
-.footer-links a:hover { color: var(--gold); padding-left: 5px; }
-
-.footer-form { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-.footer-form input { 
-    background: rgba(255,255,255,0.05); 
-    border: 1px solid rgba(255,255,255,0.1); 
-    padding: 12px; 
+.footer-column h4 { 
     color: var(--white); 
+    margin-bottom: 30px; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    height: 20px; /* Altura fija para alinear los títulos */
 }
 
-.btn-gold-small {
-    background: var(--gold);
-    color: var(--white);
+.logo-footer { 
+    font-size: 1.8rem !important; 
+    letter-spacing: 3px !important; 
+    height: auto !important; /* El logo no sigue la regla del h4 */
+    margin-bottom: 20px !important;
+}
+
+.footer-column p { 
+    font-size: 0.9rem; 
+    line-height: 1.8;
+}
+
+/* Redes Sociales Corregidas */
+.social-links { 
+    display: flex; 
+    gap: 15px; 
+    margin-top: 25px; 
+}
+
+.social-links a { 
+    color: var(--white); 
+    opacity: 0.6;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover { 
+    color: var(--gold); 
+    opacity: 1; 
+    transform: translateY(-3px); 
+}
+
+/* Listas */
+.footer-list, .contact-list { list-style: none; }
+.footer-list li, .contact-list li { margin-bottom: 12px; font-size: 0.9rem; }
+.footer-list a { 
+    color: inherit; 
+    text-decoration: none; 
+    transition: 0.3s; 
+}
+.footer-list a:hover { color: var(--gold); padding-left: 5px; }
+
+.contact-list li { display: flex; align-items: center; gap: 12px; }
+.contact-list i { color: var(--gold); width: 15px; }
+
+/* Newsletter Minimalista */
+.input-group {
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-top: 15px;
+}
+
+.input-group input {
+    background: transparent !important;
+    border: none !important;
+    padding: 10px 0 !important;
+    color: white !important;
+    flex: 1;
+    font-family: inherit;
+}
+
+.input-group button {
+    background: transparent;
     border: none;
-    padding: 12px;
+    color: var(--gold);
     cursor: pointer;
-    font-weight: 600;
-    text-transform: uppercase;
 }
 
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 0.75rem;
+}
+
+/* Footer Bottom Corregido */
 .footer-bottom { 
-    margin-top: 60px; 
-    padding-top: 30px; 
-    border-top: 1px solid rgba(255,255,255,0.05);
+    background: rgba(0,0,0,0.2);
+    padding: 25px 0;
+    margin-top: 20px;
+}
+
+.footer-bottom-flex {
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;
+    align-items: center;
+    font-size: 0.8rem;
 }
+
+.legal-links { display: flex; gap: 25px; }
+.legal-links a { color: inherit; text-decoration: none; }
 
 /* ==========================================================================
    10. ESTILOS PÁGINAS EXTERNAS (Rooms, Services, Exp, Contact)
