@@ -1,14 +1,15 @@
 <footer class="main-footer">
     <div class="container">
         <div class="footer-grid">
+            
             <div class="footer-column">
                 <h4 class="logo-footer">AURA <span>STAY</span></h4>
                 <p>Arquitectura contemporánea y serenidad absoluta en los destinos más exclusivos de la República Dominicana.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/18095550123" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
 
@@ -26,14 +27,23 @@
             <div class="footer-column">
                 <h4>Contacto</h4>
                 <ul class="contact-list">
-                    <li><i class="fas fa-map-marker-alt"></i> Cap Cana, RD</li>
-                    <li><i class="fas fa-phone"></i> +1 (809) 555-0123</li>
-                    <li><i class="fas fa-envelope"></i> reservations@aurastay.com</li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <span>Cap Cana, RD</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i> 
+                        <a href="tel:+18095550123" style="color: inherit; text-decoration: none;">+1 (809) 555-0123</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i> 
+                        <a href="mailto:reservations@aurastay.com" style="color: inherit; text-decoration: none;">reservations@aurastay.com</a>
+                    </li>
                 </ul>
-                <div class="trust-icons">
-                    <i class="fab fa-cc-paypal"></i>
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
+                <div class="trust-icons" aria-label="Métodos de pago aceptados">
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
                 </div>
             </div>
 
@@ -42,11 +52,11 @@
                 <p class="news-desc">Únete a nuestra lista exclusiva para recibir novedades de diseño.</p>
                 <form class="footer-form">
                     <div class="input-group">
-                        <input type="email" placeholder="Email" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        <input type="email" placeholder="Email" required aria-label="Tu dirección de correo electrónico">
+                        <button type="submit" aria-label="Suscribirse al boletín"><i class="fas fa-paper-plane"></i></button>
                     </div>
-                    <label class="checkbox-label">
-                        <input type="checkbox" required> <span>Acepto la política de privacidad</span>
+                    <label class="checkbox-label" style="display: flex; gap: 8px; align-items: start; margin-top: 10px; font-size: 0.8rem;">
+                        <input type="checkbox" required style="margin-top: 3px;"> <span>Acepto la política de privacidad</span>
                     </label>
                 </form>
             </div>
@@ -56,11 +66,17 @@
     <div class="footer-bottom">
         <div class="container footer-bottom-flex">
             <p>&copy; 2026 Aura Stay. Un refugio de diseño.</p>
+            
             <div class="legal-links">
-                <a href="#">Privacidad</a>
-                <a href="#">Cookies</a>
+                <a href="privacy.html">Privacidad</a>
+                <a href="terms.html">Términos</a>
             </div>
+            
             <p>Crafted by <strong>Nova Studio Web</strong></p>
         </div>
     </div>
 </footer>
+
+<a href="https://wa.me/18095550123?text=Hola,%20quisiera%20más%20información%20sobre%20Aura%20Stay." class="whatsapp-float" target="_blank" aria-label="Chatear por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>

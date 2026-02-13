@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aura Stay - Hotel Boutique de lujo. Diseño contemporáneo y calma absoluta en un refugio exclusivo.">
+    
+    <meta name="description" content="Aura Stay - Hotel Boutique de lujo en República Dominicana. Diseño contemporáneo, serenidad absoluta y experiencias exclusivas en un refugio inolvidable.">
+    <meta name="keywords" content="hotel boutique, lujo, república dominicana, aura stay, alojamiento exclusivo, diseño">
+    <meta name="author" content="Nova Studio Web">
+    <meta name="theme-color" content="#1e2d3e">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aurastay.com/">
+    <meta property="og:title" content="Aura Stay | Hotel Boutique de Lujo">
+    <meta property="og:description" content="Experimenta la calma en un refugio de diseño. Arquitectura contemporánea y servicio personalizado.">
+    <meta property="og:image" content="https://www.aurastay.com/assets/img/og-preview.jpg">
+    
     <title>Aura Stay | Hotel Boutique de Lujo</title>
     
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -13,146 +24,224 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/page.css">
 </head>
 <body>
+
+    <noscript>
+        <div style="padding: 20px; text-align: center; background: #fff;">
+            Para ver la experiencia completa de Aura Stay, por favor activa JavaScript.
+        </div>
+    </noscript>
 
     <div id="header-container" role="banner"></div>
 
     <main id="main-content">
         
         <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-overlay"></div> 
-            <div class="hero-content ">
+            <div class="hero-content">
                 <span class="subtitle">Destino de Exclusividad</span>
                 <h1 id="hero-title">Experimenta la Calma en un Refugio de Diseño</h1>
                 <p>Aura Stay combina arquitectura contemporánea, servicio personalizado y experiencias exclusivas para viajeros que buscan más que un simple alojamiento.</p>
+                
                 <div class="hero-btns">
-                    <a href="#booking" class="btn-primary">Reserva Tu Estancia</a>
+                    <a href="https://wa.me/18095550123?text=Hola,%20quisiera%20información%20para%20reservar%20una%20estancia." target="_blank" class="btn-primary">Reserva Tu Estancia</a>
                     <a href="habitaciones.html" class="btn-secondary">Explora Habitaciones</a>
                 </div>
-                <div class="hero-badge" aria-live="polite">
-                    <span class="check-icon" aria-hidden="true">✓</span> 
-                    <span>Cancelación flexible · Mejor precio garantizado</span>
+                
+                <div class="hero-badge" aria-live="polite" style="margin-top: 30px; font-size: 0.9rem;">
+                    <span><i class="fas fa-check" style="color: var(--gold);"></i> Cancelación flexible</span>
+                    <span style="margin: 0 10px;">·</span>
+                    <span><i class="fas fa-check" style="color: var(--gold);"></i> Mejor precio garantizado</span>
                 </div>
             </div>
         </section>
 
         <section class="rooms" aria-labelledby="rooms-title">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header text-center" style="margin-bottom: 50px;">
                     <span class="section-tag">Nuestras Habitaciones</span>
                     <h2 id="rooms-title">Espacios Diseñados para tu Descanso</h2>
-                    <p class="section-desc">Cada habitación es un santuario de elegancia moderna con vistas excepcionales y comodidades premium.</p>
+                    <p style="max-width: 600px; margin: 0 auto;">Cada habitación es un santuario de elegancia moderna con vistas excepcionales y comodidades premium.</p>
                 </div>
                 
                 <div class="room-grid">
-                    <article class="room-card card-1">
+                    
+                    <article class="room-card fade-up">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=600" alt="Vista interior de la Suite Deluxe" loading="lazy">
+                        </div>
                         <div class="room-info">
-                            <h3>Suite Deluxe</h3>
-                            <p>45m² · Vista panorámica · Balcón privado</p>
-                            <span class="price">Desde $180<small>/noche</small></span>
-                            <a href="#" class="btn-text">Ver Detalles</a>
+                            <div class="room-header">
+                                <h3>Suite Deluxe</h3>
+                                <span class="price">$180<small>/noche</small></span>
+                            </div>
+                            <p class="room-description">Equilibrio perfecto entre minimalismo y calidez con acabados de lujo.</p>
+                            <ul class="room-features">
+                                <li><i class="fas fa-ruler-combined"></i> 45m²</li>
+                                <li><i class="fas fa-mountain"></i> Vista Panorámica</li>
+                                <li><i class="fas fa-wind"></i> Balcón Privado</li>
+                            </ul>
+                            <a href="habitaciones.html#deluxe" class="btn-outline-dark full-width">Ver Detalles</a>
                         </div>
                     </article>
 
-                    <article class="room-card card-2">
+                    <article class="room-card featured-card fade-up" style="transition-delay: 0.1s;">
+                        <div class="card-image-wrapper">
+                            <span class="badge-best-seller">Recomendado</span>
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=600" alt="Habitación Premium con iluminación cálida" loading="lazy">
+                        </div>
                         <div class="room-info">
-                            <h3>Habitación Premium</h3>
-                            <p>35m² · Desayuno incluido · Minibar</p>
-                            <span class="price">Desde $145<small>/noche</small></span>
-                            <a href="#" class="btn-text">Ver Detalles</a>
+                            <div class="room-header">
+                                <h3>Habitación Premium</h3>
+                                <span class="price">$145<small>/noche</small></span>
+                            </div>
+                            <p class="room-description">Confort superior con desayuno gourmet incluido y acceso prioritario.</p>
+                            <ul class="room-features">
+                                <li><i class="fas fa-ruler-combined"></i> 35m²</li>
+                                <li><i class="fas fa-coffee"></i> Desayuno Incluido</li>
+                                <li><i class="fas fa-glass-martini-alt"></i> Minibar</li>
+                            </ul>
+                            <a href="habitaciones.html#premium" class="btn-primary full-width">Ver Detalles</a>
                         </div>
                     </article>
 
-                    <article class="room-card card-3">
+                    <article class="room-card fade-up" style="transition-delay: 0.2s;">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=600" alt="Master Suite con jacuzzi privado" loading="lazy">
+                        </div>
                         <div class="room-info">
-                            <h3>Master Suite</h3>
-                            <p>65m² · Jacuzzi privado · Terraza</p>
-                            <span class="price">Desde $280<small>/noche</small></span>
-                            <a href="#" class="btn-text">Ver Detalles</a>
+                            <div class="room-header">
+                                <h3>Master Suite</h3>
+                                <span class="price">$280<small>/noche</small></span>
+                            </div>
+                            <p class="room-description">La máxima expresión de lujo con jacuzzi privado y terraza exclusiva.</p>
+                            <ul class="room-features">
+                                <li><i class="fas fa-ruler-combined"></i> 65m²</li>
+                                <li><i class="fas fa-hot-tub"></i> Jacuzzi Privado</li>
+                                <li><i class="fas fa-umbrella-beach"></i> Terraza</li>
+                            </ul>
+                            <a href="habitaciones.html#master" class="btn-outline-dark full-width">Ver Detalles</a>
                         </div>
                     </article>
                 </div>
                 
                 <div class="text-center mt-50">
-                    <a href="habitaciones.html" class="btn-outline-dark">Ver Todas las Habitaciones</a>
+                    <a href="habitaciones.html" class="btn-text-arrow">Ver Todas las Habitaciones <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
 
         <section class="services" aria-labelledby="services-title">
             <div class="container flex-services">
-                <div class="services-img animate-on-scroll">
-                    <img src="pool-view.jpg" alt="Piscina Infinity con vista al atardecer" loading="lazy">
+                
+                <div class="services-img animate-on-scroll fade-up">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=800" 
+                        alt="Piscina Infinity al atardecer en Aura Stay" 
+                        loading="lazy" 
+                        width="600" 
+                        height="500" 
+                        style="object-fit: cover; border-radius: 2px;">
+                    
                     <div class="rating-badge">
-                        <span class="star" aria-hidden="true">★</span> 
-                        <strong>4.9</strong> <span>Calificación</span>
+                        <span class="star" aria-hidden="true" style="font-size: 1.2rem;">★</span> 
+                        <div>
+                            <strong style="display: block; line-height: 1;">4.9</strong> 
+                            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">Excepcional</span>
+                        </div>
                     </div>
                 </div>
-                <div class="services-content">
+
+                <div class="services-content fade-up" style="transition-delay: 0.2s;">
                     <span class="section-tag">Experiencia Premium</span>
                     <h2 id="services-title">Servicios Diseñados para tu Bienestar</h2>
-                    <p>Cada detalle en Aura Stay está pensado para que disfrutes de una estancia inolvidable donde el tiempo se detiene.</p>
+                    <p>En Aura Stay, el lujo no es solo estética, es una sensación. Cada detalle está curado para ofrecerte un refugio de calma y sofisticación sin interrupciones.</p>
                     
                     <ul class="service-list">
                         <li>
-                            <div class="service-icon"><i class="icon-pool"></i></div>
-                            <div><strong>Piscina Infinity</strong><p>Vista panorámica al horizonte con servicio de bebidas premium.</p></div>
+                            <div class="service-icon"><i class="fas fa-water"></i></div>
+                            <div>
+                                <strong>Piscina Infinity</strong>
+                                <p>Vistas panorámicas al horizonte con servicio de coctelería y toallas refrescantes.</p>
+                            </div>
                         </li>
                         <li>
-                            <div class="service-icon"><i class="icon-spa"></i></div>
-                            <div><strong>Spa & Wellness</strong><p>Tratamientos personalizados y masajes terapéuticos.</p></div>
+                            <div class="service-icon"><i class="fas fa-spa"></i></div>
+                            <div>
+                                <strong>Spa & Wellness</strong>
+                                <p>Tratamientos holísticos inspirados en técnicas ancestrales y productos orgánicos locales.</p>
+                            </div>
                         </li>
                         <li>
-                            <div class="service-icon"><i class="icon-food"></i></div>
-                            <div><strong>Gastronomía de Autor</strong><p>Restaurante con cocina contemporánea y productos locales.</p></div>
+                            <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                            <div>
+                                <strong>Gastronomía de Autor</strong>
+                                <p>Una fusión de sabores caribeños y técnica internacional en nuestro restaurante exclusivo.</p>
+                            </div>
                         </li>
                     </ul>
-                    <a href="servicios.html" class="btn-dark">Descubre Todo</a>
+                    
+                    <a href="servicios.html" class="btn-dark">Descubre Todos los Servicios</a>
                 </div>
             </div>
         </section>
 
-        <section class="stats" aria-label="Estadísticas de Aura Stay">
+        <section class="stats" aria-label="Cifras de Excelencia">
             <div class="container">
                 <div class="stats-grid">
-                    <div class="stat-item">
+                    
+                    <div class="stat-item fade-up">
+                        <i class="fas fa-bed" style="font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;"></i>
                         <span class="stat-number">20+</span>
-                        <span class="stat-label">Habitaciones Exclusivas</span>
+                        <span class="stat-label">Suites Exclusivas</span>
                     </div>
-                    <div class="stat-item">
+
+                    <div class="stat-item fade-up" style="transition-delay: 0.1s;">
+                        <i class="fas fa-smile" style="font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;"></i>
                         <span class="stat-number">98%</span>
-                        <span class="stat-label">Satisfacción</span>
+                        <span class="stat-label">Huéspedes Felices</span>
                     </div>
-                    <div class="stat-item">
+
+                    <div class="stat-item fade-up" style="transition-delay: 0.2s;">
+                        <i class="fas fa-concierge-bell" style="font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;"></i>
                         <span class="stat-number">24/7</span>
                         <span class="stat-label">Concierge Personal</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5★</span>
-                        <span class="stat-label">Calificación Promedio</span>
+
+                    <div class="stat-item fade-up" style="transition-delay: 0.3s;">
+                        <i class="fas fa-star" style="font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;"></i>
+                        <span class="stat-number">5.0</span>
+                        <span class="stat-label">Calificación Global</span>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <section id="booking" class="cta-final">
+        <section id="booking" class="cta-final" style="background: linear-gradient(rgba(30, 45, 62, 0.85), rgba(30, 45, 62, 0.95)), url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=1200') center/cover fixed no-repeat; color: white;">
             <div class="container text-center">
-                <span class="section-tag">Tu Escapada te Espera</span>
-                <h2>Reserva Hoy y Vive una Experiencia Inolvidable</h2>
                 
-                <div class="cta-features">
-                    <span>✓ Mejor precio garantizado</span>
-                    <span>✓ Cancelación flexible</span>
-                    <span>✓ Check-in anticipado</span>
+                <span class="section-tag" style="color: var(--gold);">Tu Escapada te Espera</span>
+                <h2 style="color: white; margin-bottom: 30px;">Reserva Hoy y Vive una Experiencia Inolvidable</h2>
+                
+                <div class="cta-features" style="color: rgba(255,255,255,0.9); margin-bottom: 40px; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+                    <span><i class="fas fa-check-circle" style="color: var(--gold);"></i> Mejor precio garantizado</span>
+                    <span><i class="fas fa-clock" style="color: var(--gold);"></i> Cancelación flexible</span>
+                    <span><i class="fas fa-star" style="color: var(--gold);"></i> Check-in anticipado</span>
                 </div>
                 
-                <div class="cta-btns">
-                    <button class="btn-primary">Reserva Ahora</button>
-                    <button class="btn-outline-white">Contáctanos</button>
+                <div class="cta-btns hero-btns" style="justify-content: center;">
+                    <a href="https://wa.me/18095550123?text=Hola,%20estoy%20listo%20para%20reservar%20mi%20escapada%20en%20Aura%20Stay." target="_blank" class="btn-primary" style="background: var(--gold); border-color: var(--gold); min-width: 200px;">
+                        Reserva Ahora
+                    </a>
+                    
+                    <a href="contacto.html" class="btn-secondary" style="margin-left: 15px; min-width: 200px;">
+                        Contáctanos
+                    </a>
                 </div>
-                <p class="disclaimer">*Sujeto a disponibilidad al momento del check-in</p>
+                
+                <p class="disclaimer" style="color: rgba(255,255,255,0.5); margin-top: 30px;">*Sujeto a disponibilidad al momento del check-in</p>
             </div>
         </section>
     </main>

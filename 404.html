@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex"> 
+    <title>Página No Encontrada | Aura Stay</title>
+    
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/page.css">
+    
+    <style>
+        .error-hero {
+            position: relative;
+            height: 80vh; /* Más alto para dar sensación de amplitud */
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=1600') center/cover no-repeat;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 45, 62, 0.75); /* Azul Aura oscuro y elegante */
+            z-index: 1;
+        }
+
+        .error-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 0 20px;
+        }
+
+        /* Efecto de texto hueco (Outline) para el 404 */
+        .error-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 12rem;
+            line-height: 0.8;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3); /* Borde sutil */
+            background-image: linear-gradient(to bottom, var(--gold), #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            opacity: 0.9;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .error-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin: 0 auto 40px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Animación suave de flotación */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Ajuste para móvil */
+        @media (max-width: 768px) {
+            .error-number { font-size: 8rem; -webkit-text-stroke: 1px rgba(255,255,255,0.5); }
+            .error-title { font-size: 1.8rem; }
+            .btn-group { flex-direction: column; gap: 15px; }
+            .btn-primary, .btn-secondary { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="header-container" role="banner"></div>
+
+    <main id="main-content">
+        <section class="error-hero">
+            <div class="hero-overlay"></div>
+            
+            <div class="error-content fade-up">
+                <div class="error-number">404</div>
+                
+                <h1 class="error-title">Extraviado en el Paraíso</h1>
+                <p class="error-desc">Parece que la página que buscas se ha tomado unas vacaciones. No te preocupes, el camino de regreso al lujo es muy sencillo.</p>
+                
+                <div class="btn-group">
+                    <a href="./index.html" class="btn-primary" style="background-color: var(--gold); border-color: var(--gold); min-width: 180px;">
+                        <i class="fas fa-home" style="margin-right: 8px;"></i> Volver al Inicio
+                    </a>
+                    <a href="./contact.html" class="btn-secondary" style="color: white; border-color: white; min-width: 180px;">
+                        <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contactar Soporte
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container" role="contentinfo"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.error-content').classList.add('is-visible');
+        });
+    </script>
+</body>
+</html>

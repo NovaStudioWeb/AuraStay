@@ -6,6 +6,7 @@
     --dark-navy: #1e2d3e;
     --midnight: #111b27;
     --soft-white: #f8f9fa;
+    --cream: #fdfbf9; /* Nuevo: Fondo cálido de lujo */
     --text-main: #2d3436;
     --text-muted: #636e72;
     --white: #ffffff;
@@ -13,34 +14,28 @@
     --container-width: 1200px;
 }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body { 
     font-family: 'Poppins', sans-serif; 
     color: var(--text-main);
-    background-color: var(--white);
-    line-height: 1.6;
+    background-color: var(--cream);
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 { 
     font-family: 'Playfair Display', serif; 
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: 400; /* Lujo: Más fino es más elegante */
+    line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
-img {
-    max-width: 100%;
-    display: block;
-}
+p { font-weight: 300; color: #5a5a5a; }
+
+img { max-width: 100%; display: block; }
 
 .container {
     max-width: var(--container-width);
@@ -52,7 +47,7 @@ img {
 .mt-50 { margin-top: 50px; }
 
 /* ==========================================================================
-   2. HEADER DINÁMICO
+   2. HEADER DINÁMICO (GLASSMORPHISM)
    ========================================================================== */
 .main-header {
     position: fixed;
@@ -65,9 +60,12 @@ img {
 }
 
 .header-scrolled {
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(255, 255, 255, 0.85); /* Transparencia */
+    backdrop-filter: blur(12px); /* Efecto cristal */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     padding: 15px 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
@@ -105,6 +103,13 @@ img {
     transition: 0.3s;
 }
 
+.nav-link.active {
+    color: var(--gold) !important; 
+    font-weight: 600; 
+    border-bottom: 2px solid var(--gold); 
+    padding-bottom: 5px;
+}
+
 .header-scrolled .nav-link { color: var(--text-main); }
 .nav-link:hover, .nav-link.active { color: var(--gold) !important; }
 
@@ -121,37 +126,54 @@ img {
 }
 
 /* ==========================================================================
-   3. HERO SECTION
+   3. HERO SECTION (CORREGIDO + PARALLAX)
    ========================================================================== */
 .hero { 
     height: 100vh; 
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80') center/cover;
-    display: flex; 
-    align-items: center; 
+    /* Fondo más oscuro para legibilidad y Parallax */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax */
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
     position: relative;
     color: var(--white);
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .hero-content { 
     max-width: 800px; 
     margin-left: 5%;
-    z-index: 2;
+    z-index: 5;
+    text-align: left;
+    color: #ffffff !important;
+    margin-top: 60px;
 }
 
 .hero-content h1 { 
     font-size: 4.5rem; 
     margin: 20px 0;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    color: #ffffff !important;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Sombra fuerte */
+}
+
+.hero-content p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 400;
 }
 
 .subtitle { 
     text-transform: uppercase; 
-    letter-spacing: 5px; 
+    letter-spacing: 4px; 
     font-size: 0.85rem; 
     color: var(--gold);
     display: block;
-    padding-top: 80px;
+    padding-top: 0; /* Ajustado por el flex centering */
+    font-weight: 600;
 }
 
 .hero-btns { margin: 30px 0; }
@@ -169,19 +191,28 @@ img {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: var(--transition);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease, transform 0.4s ease;
 }
 
-.btn-primary:hover {
+.btn-primary::before, .btn-dark::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 0%; height: 100%;
     background: var(--gold);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
+.btn-primary:hover::before, .btn-dark:hover::before { width: 100%; }
+.btn-primary:hover, .btn-dark:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
 .btn-secondary {
     background: transparent;
-    border: 2px solid var(--white);
+    border: 1px solid var(--white);
     color: var(--white);
     padding: 16px 35px;
     display: inline-block;
@@ -206,11 +237,11 @@ img {
 .btn-outline-dark:hover { background: var(--dark-navy); color: var(--white); }
 
 /* ==========================================================================
-   5. SECCIÓN HABITACIONES (INDEX)
+   5. SECCIÓN HABITACIONES (HOME - UPDATED CARDS)
    ========================================================================== */
 .rooms { padding: 100px 0; background: var(--soft-white); }
 
-.section-tag { color: var(--gold); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; }
+.section-tag { color: var(--gold); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 10px; }
 
 .room-grid { 
     display: grid; 
@@ -219,34 +250,92 @@ img {
     margin-top: 50px;
 }
 
+/* Nuevas Tarjetas con imágenes reales */
 .room-card { 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: var(--white);
+    border: none;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); /* Sombra suave */
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.room-card:hover { 
+    transform: translateY(-15px); 
+    box-shadow: 0 20px 50px -10px rgba(0,0,0,0.12);
+}
+
+.card-image-wrapper {
+    position: relative;
+    height: 250px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-    transition: var(--transition);
 }
 
-.room-card:hover { transform: translateY(-10px); }
-
-.room-card::before {
-    content: "";
-    display: block;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-.card-1::before { background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=500'); }
-.card-2::before { background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=500'); }
-.card-3::before { background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=500'); }
+.room-card:hover .card-image-wrapper img { transform: scale(1.05); }
+
+.badge-best-seller {
+    position: absolute;
+    top: 15px; left: 15px;
+    background: var(--gold);
+    color: #fff;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 2;
+}
 
 .room-info { padding: 30px; }
-.room-info h3 { font-size: 1.8rem; margin-bottom: 10px; }
-.price { color: var(--gold); font-weight: 700; font-size: 1.2rem; display: block; margin-top: 15px; }
+
+.room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.room-header h3 { font-size: 1.4rem; margin: 0; }
+.room-header .price { font-size: 1.1rem; color: var(--gold); margin: 0; font-weight: 700; }
 .price small { font-weight: 300; font-size: 0.8rem; color: var(--text-muted); }
 
+.room-description { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+
+.room-features {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 0;
+}
+
+.room-features li {
+    font-size: 0.8rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.room-features i { color: var(--gold); }
+
+.full-width { width: 100%; text-align: center; display: block; }
+.btn-text-arrow { color: var(--dark-navy); text-decoration: none; font-weight: 600; transition: 0.3s; border-bottom: 1px solid transparent; }
+.btn-text-arrow:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
 /* ==========================================================================
-   6. SECCIÓN SERVICIOS (Asimétrica)
+   6. SECCIÓN SERVICIOS (HOME)
    ========================================================================== */
 .services { padding: 100px 0; }
 .flex-services { display: flex; align-items: center; gap: 80px; }
@@ -270,9 +359,7 @@ img {
 }
 
 .star { color: var(--gold); }
-
 .services-content { flex: 1; }
-
 .service-list { list-style: none; margin: 30px 0; }
 .service-list li { 
     display: flex; 
@@ -286,7 +373,7 @@ img {
 .service-list p { font-size: 0.9rem; color: var(--text-muted); }
 
 /* ==========================================================================
-   7. STATS & CTA
+   7. STATS & CTA (HOME)
    ========================================================================== */
 .stats { padding: 80px 0; background: var(--dark-navy); color: var(--white); }
 .stats-grid { 
@@ -296,26 +383,26 @@ img {
 }
 
 .stat-number { font-family: 'Playfair Display'; font-size: 3rem; color: var(--gold); display: block; }
-.stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+.stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
 
 .cta-final { padding: 100px 0; background: var(--soft-white); }
 .cta-features { display: flex; justify-content: center; gap: 30px; margin: 30px 0; font-weight: 600; font-size: 0.9rem; }
 .disclaimer { margin-top: 20px; font-size: 0.75rem; color: var(--text-muted); }
 
 /* ==========================================================================
-   8. FOOTER REPARADO Y OPTIMIZADO
+   8. FOOTER GLOBAL (CORREGIDO)
    ========================================================================== */
 .main-footer { 
     background: var(--midnight); 
     color: rgba(255,255,255,0.7); 
-    padding: 80px 0 0; /* Quitamos padding bottom para que footer-bottom pegue abajo */
+    padding: 80px 0 0; 
 }
 
 .footer-grid { 
     display: grid; 
     grid-template-columns: 1.5fr 1fr 1fr 1.5fr; 
     gap: 40px; 
-    align-items: start; /* Asegura que todos los títulos h4 estén alineados arriba */
+    align-items: start; /* Alineación corregida */
     padding-bottom: 60px;
 }
 
@@ -325,216 +412,209 @@ img {
     font-size: 0.9rem; 
     text-transform: uppercase; 
     letter-spacing: 2px;
-    height: 20px; /* Altura fija para alinear los títulos */
+    height: 20px; 
 }
 
 .logo-footer { 
     font-size: 1.8rem !important; 
     letter-spacing: 3px !important; 
-    height: auto !important; /* El logo no sigue la regla del h4 */
+    height: auto !important; 
     margin-bottom: 20px !important;
+    margin-top: -5px; /* Alineación visual fina con títulos */
+    line-height: 1;
 }
 
-.footer-column p { 
-    font-size: 0.9rem; 
-    line-height: 1.8;
-}
+.footer-column p { font-size: 0.9rem; line-height: 1.8; }
 
-/* Redes Sociales Corregidas */
-.social-links { 
-    display: flex; 
-    gap: 15px; 
-    margin-top: 25px; 
-}
-
+.social-links { display: flex; gap: 15px; margin-top: 25px; }
 .social-links a { 
-    color: var(--white); 
-    opacity: 0.6;
-    font-size: 1.1rem;
-    transition: var(--transition);
+    color: var(--white) !important; /* Fuerza el blanco */
+    opacity: 0.6; 
+    font-size: 1.1rem; 
+    transition: var(--transition); 
+    text-decoration: none !important;
 }
+.social-links a:hover { color: var(--gold) !important; opacity: 1; transform: translateY(-3px); }
 
-.social-links a:hover { 
-    color: var(--gold); 
-    opacity: 1; 
-    transform: translateY(-3px); 
-}
-
-/* Listas */
 .footer-list, .contact-list { list-style: none; }
 .footer-list li, .contact-list li { margin-bottom: 12px; font-size: 0.9rem; }
-.footer-list a { 
-    color: inherit; 
-    text-decoration: none; 
-    transition: 0.3s; 
-}
+.footer-list a { color: inherit; text-decoration: none; transition: 0.3s; }
 .footer-list a:hover { color: var(--gold); padding-left: 5px; }
 
 .contact-list li { display: flex; align-items: center; gap: 12px; }
 .contact-list i { color: var(--gold); width: 15px; }
 
-/* Newsletter Minimalista */
-.input-group {
-    display: flex;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    margin-top: 15px;
-}
-
-.input-group input {
-    background: transparent !important;
-    border: none !important;
-    padding: 10px 0 !important;
-    color: white !important;
-    flex: 1;
-    font-family: inherit;
-}
-
-.input-group button {
-    background: transparent;
-    border: none;
-    color: var(--gold);
-    cursor: pointer;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-    font-size: 0.75rem;
-}
-
-/* Footer Bottom Corregido */
-.footer-bottom { 
-    background: rgba(0,0,0,0.2);
-    padding: 25px 0;
+.trust-icons {
     margin-top: 20px;
-}
-
-.footer-bottom-flex {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
+    gap: 15px;
+    opacity: 0.5;
+    font-size: 1.5rem;
 }
 
+.input-group { display: flex; border-bottom: 1px solid rgba(255,255,255,0.2); margin-top: 15px; }
+.input-group input { background: transparent !important; border: none !important; padding: 10px 0 !important; color: white !important; flex: 1; font-family: inherit; }
+.input-group button { background: transparent; border: none; color: var(--gold); cursor: pointer; }
+
+.checkbox-label { display: flex; align-items: center; gap: 10px; margin-top: 15px; font-size: 0.75rem; }
+
+.footer-bottom { background: rgba(0,0,0,0.2); padding: 25px 0; margin-top: 20px; }
+.footer-bottom-flex { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
 .legal-links { display: flex; gap: 25px; }
 .legal-links a { color: inherit; text-decoration: none; }
 
 /* ==========================================================================
-   10. ESTILOS PÁGINAS EXTERNAS (Rooms, Services, Exp, Contact)
+   9. ESTILOS FUNCIONALES Y ANIMACIONES
    ========================================================================== */
 
-/* Hero de Páginas Secundarias */
-.page-hero {
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    color: var(--white);
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    padding-top: 80px;
+/* Menú Móvil */
+@media (max-width: 992px) {
+    .nav-menu {
+        position: fixed; top: 0; right: -100%; width: 80%; max-width: 400px; height: 100vh;
+        background: var(--dark-navy); flex-direction: column; justify-content: center; align-items: center;
+        transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); z-index: 999; box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+    }
+    .nav-menu.active { right: 0; }
+    .mobile-menu-toggle { z-index: 1001; }
+    .mobile-menu-toggle.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .mobile-menu-toggle.open .bar:nth-child(2) { opacity: 0; }
+    .mobile-menu-toggle.open .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+    .nav-link { font-size: 1.2rem; margin: 15px 0; color: rgba(255,255,255,0.8); }
 }
 
-.page-hero::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(17, 27, 39, 0.55);
-}
+/* Animaciones de Scroll */
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-up.is-visible { opacity: 1; transform: translateY(0); }
 
-.page-hero .container { position: relative; z-index: 2; }
-
-/* Detalle de Habitaciones (Página Habitaciones) */
-.rooms-list { padding: 100px 0; }
-.room-detail-card {
-    display: flex;
-    gap: 60px;
-    margin-bottom: 100px;
-    align-items: center;
-}
-.room-detail-card.reverse { flex-direction: row-reverse; }
-.room-detail-img { flex: 1.2; overflow: hidden; }
-.room-detail-img img { transition: var(--transition); }
-.room-detail-card:hover .room-detail-img img { transform: scale(1.05); }
-.room-detail-info { flex: 1; }
-.amenities-list {
-    list-style: none;
-    margin: 25px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* Grid de Servicios Detallado */
-.services-full { padding: 100px 0; background: var(--soft-white); }
-.services-grid-detailed {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-}
-.service-block {
-    background: var(--white);
-    padding: 40px;
-    position: relative;
-    transition: var(--transition);
-    border-bottom: 3px solid transparent;
-}
-.service-block:hover { border-color: var(--gold); transform: translateY(-5px); }
-.service-number {
-    font-family: 'Playfair Display';
-    font-size: 3rem;
-    color: rgba(197, 160, 89, 0.15);
-    position: absolute;
-    top: 20px; right: 30px;
-}
-
-/* Experiencias */
-.experience-gallery { padding: 100px 0; }
-.exp-row { display: flex; align-items: center; gap: 80px; margin-bottom: 100px; }
-.exp-row.reverse { flex-direction: row-reverse; }
-.exp-img { flex: 1; }
-.exp-text { flex: 1; }
-.exp-text h3 { font-size: 2.5rem; margin-bottom: 20px; }
-
-/* Página de Contacto */
-.contact-page { padding: 180px 0 100px; background: var(--soft-white); }
-.flex-contact { display: flex; gap: 100px; align-items: flex-start; }
-.contact-info { flex: 1; }
-.contact-info h1 { font-size: 3.5rem; margin-bottom: 25px; }
-.info-item { margin-bottom: 30px; }
-.info-item strong { display: block; color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-
-.contact-form-box { 
-    flex: 1; 
-    background: var(--white); 
-    padding: 60px; 
-    box-shadow: 0 30px 60px rgba(0,0,0,0.07); 
-}
-.form-group { margin-bottom: 25px; }
-.form-group label { display: block; font-size: 0.85rem; margin-bottom: 10px; font-weight: 600; }
-.form-group input, .form-group select, .form-group textarea {
-    width: 100%; padding: 15px; border: 1px solid #e1e1e1; background: #fcfcfc; font-family: inherit; transition: 0.3s;
-}
-.form-group input:focus { outline: none; border-color: var(--gold); background: #fff; }
+.mobile-menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; background: transparent; border: none; cursor: pointer; padding: 0; }
+.bar { width: 100%; height: 3px; background-color: var(--white); border-radius: 3px; transition: 0.3s; }
+.header-scrolled .bar { background-color: var(--dark-navy); }
 
 /* ==========================================================================
-   9. RESPONSIVE DESIGN
+   10. RESPONSIVE GLOBAL
    ========================================================================== */
 @media (max-width: 992px) {
-    .flex-services, .room-detail-card, .flex-contact, .exp-row { flex-direction: column !important; gap: 40px; }
+    .flex-services { flex-direction: column; gap: 40px; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .hero-content h1 { font-size: 3rem; }
     .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-    .page-hero { height: 50vh; }
+    .mobile-menu-toggle { display: flex; }
+    .btn-book-nav { display: none; }
 }
 
 @media (max-width: 768px) {
     .nav-menu { display: none; }
     .footer-grid { grid-template-columns: 1fr; }
     .cta-features { flex-direction: column; gap: 10px; }
-    .contact-form-box { padding: 30px; }
+}
+
+/* ==========================================================================
+   CORRECCIÓN DE ALINEACIÓN DE BOTONES (PARCHE FINAL)
+   ========================================================================== */
+
+/* 1. Contenedor Flexible: Alinea los botones verticalmente */
+.hero-btns {
+    display: flex;
+    align-items: center; /* Esto es la clave: centra verticalmente */
+    gap: 20px; /* Espacio exacto entre botones */
+    margin: 30px 0;
+    flex-wrap: wrap; /* Evita que se rompan mal en pantallas muy pequeñas */
+}
+
+/* 2. Estandarización de Botones */
+.btn-primary, .btn-dark, .btn-secondary {
+    /* Usamos Flex dentro del botón para centrar el texto */
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    
+    /* ALTURA FIJA: El secreto para que sean idénticos */
+    height: 56px !important; 
+    padding: 0 35px !important; /* Solo padding lateral, la altura la controla 'height' */
+    
+    /* Tipografía y bordes */
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    box-sizing: border-box; /* El borde cuenta dentro del tamaño */
+    transition: all 0.4s ease;
+}
+
+/* Botón Sólido (Reserva) */
+.btn-primary {
+    background: var(--dark-navy);
+    color: var(--white);
+    border: 2px solid var(--dark-navy); /* Añadimos borde aunque sea del mismo color para igualar el tamaño */
+}
+
+/* Botón Borde (Explora) */
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white); /* Borde de 2px */
+}
+
+/* Hover Effects (Mantenemos tu estilo de lujo) */
+.btn-primary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--dark-navy);
+    transform: translateY(-3px);
+}
+
+/* Ajuste específico para móvil */
+@media (max-width: 576px) {
+    .hero-btns {
+        flex-direction: column; /* Uno encima del otro en celulares */
+        width: 100%;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Botones anchos en móvil */
+    }
+}
+
+/* --- BOTÓN FLOTANTE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; /* Verde WhatsApp oficial */
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Para que flote sobre todo lo demás */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e; /* Verde más oscuro al pasar el mouse */
+    transform: scale(1.1); /* Efecto de "crecer" un poquito */
+    color: white;
+}
+
+/* Ajuste para móviles (un poco más pequeño y pegado al borde) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
 }

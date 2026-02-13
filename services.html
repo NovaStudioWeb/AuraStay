@@ -3,52 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios | Aura Stay</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/pages.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Relájate en nuestro Spa, disfruta de la gastronomía de autor y vive el servicio de concierge personalizado de Aura Stay.">
+    <title>Servicios Premium | Aura Stay Boutique Hotel</title>
+    
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/page.css">
+    
+    <style>
+        .service-details-list {
+            list-style: none;
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .service-details-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .service-details-list i { color: var(--gold); }
+        .extra-services-title {
+            text-align: center;
+            margin: 80px 0 50px;
+            font-size: 2rem;
+        }
+    </style>
 </head>
 <body>
-    <div id="header-container"></div>
+    
+    <div id="header-container" role="banner"></div>
 
-    <main>
+    <main id="main-content">
         <section class="page-hero services-hero">
             <div class="container">
                 <span class="subtitle">Bienestar & Confort</span>
                 <h1>Servicios Diseñados para Ti</h1>
+                <p>Elevamos el estándar de la hospitalidad con atención al detalle y experiencias curadas.</p>
             </div>
         </section>
 
         <section class="services-full">
             <div class="container">
-                <div class="services-grid-detailed">
-                    <div class="service-block">
-                        <span class="service-number">01</span>
-                        <h3>Spa & Wellness</h3>
-                        <p>Tratamientos personalizados, sauna y masajes terapéuticos para renovar cuerpo y mente.</p>
+                
+                <div class="exp-row fade-up">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800" alt="Masaje relajante en Aura Spa" loading="lazy">
                     </div>
-                    <div class="service-block">
-                        <span class="service-number">02</span>
-                        <h3>Gastronomía</h3>
-                        <p>Restaurante de autor con productos orgánicos de temporada y una cava de vinos seleccionados.</p>
-                    </div>
-                    <div class="service-block">
-                        <span class="service-number">03</span>
-                        <h3>Piscina Infinity</h3>
-                        <p>Un espacio de calma con vistas al horizonte y servicio de bar premium junto al agua.</p>
-                    </div>
-                    <div class="service-block">
-                        <span class="service-number">04</span>
-                        <h3>Concierge 24/7</h3>
-                        <p>Atención personalizada para gestionar traslados, reservas y experiencias locales exclusivas.</p>
+                    <div class="exp-text">
+                        <span class="section-tag">01. Relajación</span>
+                        <h3>Aura Spa & Wellness</h3>
+                        <p>Un santuario para los sentidos. Utilizamos productos orgánicos locales (coco, café, cacao) para tratamientos que renuevan cuerpo y espíritu en un ambiente de silencio absoluto.</p>
+                        <ul class="service-details-list">
+                            <li><i class="fas fa-spa"></i> Masajes Deep Tissue</li>
+                            <li><i class="fas fa-hot-tub"></i> Circuito de Hidroterapia</li>
+                            <li><i class="fas fa-leaf"></i> Faciales Orgánicos</li>
+                            <li><i class="fas fa-yin-yang"></i> Yoga Privado</li>
+                        </ul>
                     </div>
                 </div>
+
+                <div class="exp-row reverse fade-up">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800" alt="Plato gourmet en el restaurante" loading="lazy">
+                    </div>
+                    <div class="exp-text">
+                        <span class="section-tag">02. Sabor</span>
+                        <h3>Gastronomía de Autor</h3>
+                        <p>Cocina que celebra los sabores del Caribe con técnicas modernas. Ingredientes frescos de nuestra huerta y pesca del día, maridados con una cava de vinos internacional.</p>
+                        <ul class="service-details-list">
+                            <li><i class="fas fa-utensils"></i> Desayuno a la Carta</li>
+                            <li><i class="fas fa-wine-glass-alt"></i> Cava Seleccionada</li>
+                            <li><i class="fas fa-fish"></i> Pesca Sostenible</li>
+                            <li><i class="fas fa-concierge-bell"></i> Room Service 24h</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-row fade-up">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=800" alt="Piscina Infinity con vista al mar" loading="lazy">
+                    </div>
+                    <div class="exp-text">
+                        <span class="section-tag">03. Calma</span>
+                        <h3>Piscina Infinity</h3>
+                        <p>El corazón de Aura Stay. Un espejo de agua que se funde con el horizonte del mar Caribe. Disfruta del sol en nuestras camas balinesas con atención personalizada.</p>
+                        <ul class="service-details-list">
+                            <li><i class="fas fa-water"></i> Climatizada</li>
+                            <li><i class="fas fa-umbrella-beach"></i> Camas Balinesas</li>
+                            <li><i class="fas fa-cocktail"></i> Bar de Piscina</li>
+                            <li><i class="fas fa-tshirt"></i> Toallas Refrescantes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 class="extra-services-title fade-up">Más Comodidades</h2>
+                
+                <div class="services-grid-detailed">
+                    
+                    <div class="service-block fade-up">
+                        <i class="fas fa-concierge-bell service-icon-large" aria-hidden="true"></i>
+                        <h3>Concierge 24/7</h3>
+                        <p>Organizamos tus traslados, reservas en restaurantes externos y excursiones privadas.</p>
+                    </div>
+
+                    <div class="service-block fade-up" style="transition-delay: 0.1s;">
+                        <i class="fas fa-dumbbell service-icon-large" aria-hidden="true"></i>
+                        <h3>Gimnasio Boutique</h3>
+                        <p>Equipamiento Technogym de última generación abierto las 24 horas para tu rutina.</p>
+                    </div>
+
+                    <div class="service-block fade-up" style="transition-delay: 0.2s;">
+                        <i class="fas fa-wifi service-icon-large" aria-hidden="true"></i>
+                        <h3>Conectividad Total</h3>
+                        <p>Wi-Fi de alta velocidad en todo el recinto y espacios de co-working silenciosos.</p>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-50 fade-up" style="max-width: 600px; margin: 80px auto 0;">
+                    <h3>¿Tienes una petición especial?</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">Desde propuestas de matrimonio hasta dietas específicas, estamos listos para sorprenderte.</p>
+                    
+                    <a href="https://wa.me/18095550123?text=Hola,%20tengo%20una%20petición%20especial%20para%20mi%20estancia." target="_blank" class="btn-outline-dark">Contactar al Equipo</a>
+                </div>
+
             </div>
         </section>
     </main>
 
-    <div id="footer-container"></div>
+    <div id="footer-container" role="contentinfo"></div>
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>

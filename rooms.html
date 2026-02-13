@@ -3,68 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habitaciones | Aura Stay Boutique Hotel</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/pages.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Descubre nuestras suites de lujo en Aura Stay. Espacios diseñados para el confort con vistas panorámicas, jacuzzi privado y amenidades premium.">
+    <title>Suites & Habitaciones | Aura Stay Boutique Hotel</title>
+    
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/page.css">
+    
+    <style>
+        /* Estilos extra para la sección de Amenidades Comunes */
+        .common-amenities {
+            background-color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .amenity-item i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+        .amenity-item h4 { font-size: 1rem; margin-bottom: 5px; color: var(--dark-navy); }
+        .amenity-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Barra de info útil */
+        .info-bar {
+            background: var(--soft-white);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .info-bar span { margin: 0 15px; display: inline-block; }
+        .info-bar i { color: var(--gold); margin-right: 5px; }
+    </style>
 </head>
 <body>
-    <div id="header-container"></div>
+    
+    <div id="header-container" role="banner"></div>
 
-    <main>
+    <main id="main-content">
         <section class="page-hero rooms-hero">
             <div class="container">
                 <span class="subtitle">Alojamiento de Lujo</span>
                 <h1>Suites & Habitaciones</h1>
-                <p>Cada espacio es una obra maestra de diseño y confort.</p>
+                <p>Cada espacio es una obra maestra de diseño y confort, pensada para tu descanso absoluto.</p>
             </div>
         </section>
 
-        <section class="rooms-list">
+        <section class="common-amenities fade-up">
             <div class="container">
-                <article class="room-detail-card">
+                <span class="section-tag">Incluido en tu Estancia</span>
+                <h2>El Estándar Aura Stay</h2>
+                <div class="amenities-grid">
+                    <div class="amenity-item">
+                        <i class="fas fa-wifi"></i>
+                        <h4>Wi-Fi de Alta Velocidad</h4>
+                        <p>Fibra óptica dedicada en cada suite.</p>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-pump-soap"></i>
+                        <h4>Amenities Premium</h4>
+                        <p>Productos orgánicos de baño.</p>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h4>Room Service 24h</h4>
+                        <p>Carta gourmet disponible todo el día.</p>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-bed"></i>
+                        <h4>Lencería de Algodón Egipcio</h4>
+                        <p>Sábanas de 400 hilos para un sueño perfecto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rooms-list" style="padding-top: 0;">
+            <div class="container">
+                
+                <article id="deluxe" class="room-detail-card fade-up">
                     <div class="room-detail-img">
-                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800" alt="Suite Deluxe">
+                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800" alt="Interior de la Suite Deluxe con vista al mar" loading="lazy">
                     </div>
                     <div class="room-detail-info">
                         <span class="section-tag">Más Popular</span>
                         <h2>Suite Deluxe</h2>
-                        <p>Nuestra Suite Deluxe ofrece un equilibrio perfecto entre minimalismo y calidez. Equipada con tecnología de vanguardia y materiales nobles.</p>
+                        <p>Nuestra Suite Deluxe ofrece un equilibrio perfecto entre minimalismo y calidez. Equipada con tecnología de vanguardia y materiales nobles para una estancia inolvidable.</p>
                         <ul class="amenities-list">
-                            <li>✦ 45m² de espacio</li>
-                            <li>✦ Vista panorámica</li>
-                            <li>✦ Balcón privado</li>
-                            <li>✦ Cama King Size</li>
+                            <li><i class="fas fa-ruler-combined"></i> 45m² de espacio</li>
+                            <li><i class="fas fa-water"></i> Vista panorámica</li>
+                            <li><i class="fas fa-door-open"></i> Balcón privado</li>
+                            <li><i class="fas fa-bed"></i> Cama King Size</li>
                         </ul>
                         <span class="price">Desde $180<small>/noche</small></span>
-                        <a href="#" class="btn-primary">Reservar ahora</a>
+                        <a href="https://wa.me/18095550123?text=Hola,%20estoy%20interesado%20en%20reservar%20la%20*Suite%20Deluxe*." target="_blank" class="btn-primary" aria-label="Reservar Suite Deluxe">Reservar ahora</a>
                     </div>
                 </article>
 
-                <article class="room-detail-card reverse">
+                <article id="premium" class="room-detail-card reverse fade-up">
                     <div class="room-detail-img">
-                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800" alt="Master Suite">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800" alt="Habitación Premium con iluminación cálida" loading="lazy">
+                    </div>
+                    <div class="room-detail-info">
+                        <span class="section-tag">Confort Total</span>
+                        <h2>Habitación Premium</h2>
+                        <p>Ideal para viajeros que buscan funcionalidad sin sacrificar estilo. Incluye desayuno gourmet y acceso prioritario a las áreas comunes.</p>
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-ruler-combined"></i> 35m² de espacio</li>
+                            <li><i class="fas fa-coffee"></i> Desayuno incluido</li>
+                            <li><i class="fas fa-glass-martini-alt"></i> Minibar premium</li>
+                            <li><i class="fas fa-laptop"></i> Zona de trabajo</li>
+                        </ul>
+                        <span class="price">Desde $145<small>/noche</small></span>
+                        <a href="https://wa.me/18095550123?text=Hola,%20estoy%20interesado%20en%20reservar%20la%20*Habitación%20Premium*." target="_blank" class="btn-primary" aria-label="Reservar Habitación Premium">Reservar ahora</a>
+                    </div>
+                </article>
+
+                <article id="master" class="room-detail-card fade-up">
+                    <div class="room-detail-img">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800" alt="Master Suite con jacuzzi en terraza" loading="lazy">
                     </div>
                     <div class="room-detail-info">
                         <span class="section-tag">Exclusivo</span>
                         <h2>Master Suite</h2>
-                        <p>La joya de Aura Stay. Una experiencia de inmersión total con jacuzzi privado en la terraza y servicio de mayordomo personal.</p>
+                        <p>La joya de Aura Stay. Una experiencia de inmersión total con jacuzzi privado en la terraza, sala de estar independiente y servicio de mayordomo personal.</p>
                         <ul class="amenities-list">
-                            <li>✦ 65m² de espacio</li>
-                            <li>✦ Jacuzzi privado</li>
-                            <li>✦ Sala de estar</li>
-                            <li>✦ Bodega privada</li>
+                            <li><i class="fas fa-ruler-combined"></i> 65m² de espacio</li>
+                            <li><i class="fas fa-hot-tub"></i> Jacuzzi privado</li>
+                            <li><i class="fas fa-couch"></i> Sala de estar</li>
+                            <li><i class="fas fa-wine-glass"></i> Bodega privada</li>
                         </ul>
                         <span class="price">Desde $280<small>/noche</small></span>
-                        <a href="#" class="btn-primary">Reservar ahora</a>
+                        <a href="https://wa.me/18095550123?text=Hola,%20estoy%20interesado%20en%20reservar%20la%20*Master%20Suite*." target="_blank" class="btn-primary" aria-label="Reservar Master Suite">Reservar ahora</a>
                     </div>
                 </article>
+
             </div>
         </section>
+
+        <div class="info-bar fade-up">
+            <div class="container">
+                <span><i class="fas fa-clock"></i> Check-in: 3:00 PM</span>
+                <span><i class="fas fa-clock"></i> Check-out: 12:00 PM</span>
+                <span><i class="fas fa-ban"></i> No se permiten mascotas</span>
+                <span><i class="fas fa-credit-card"></i> Visa / Mastercard / Amex</span>
+            </div>
+        </div>
+
+        <div class="text-center mt-50 fade-up" style="margin-bottom: 80px;">
+            <h3>¿No estás seguro cuál elegir?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Nuestro equipo puede recomendarte la suite perfecta para tu ocasión.</p>
+            <a href="contacto.html" class="btn-outline-dark">Contactar Concierge</a>
+        </div>
+
     </main>
 
-    <div id="footer-container"></div>
+    <div id="footer-container" role="contentinfo"></div>
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>

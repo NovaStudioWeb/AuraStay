@@ -3,44 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiencias | Aura Stay</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/pages.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Vive momentos inolvidables en Aura Stay: Cenas románticas, yoga al amanecer, cine en la playa y excursiones privadas.">
+    <title>Experiencias Exclusivas | Aura Stay Boutique Hotel</title>
+    
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/page.css">
+
+    <style>
+        .moments-title {
+            text-align: center;
+            margin: 80px 0 60px;
+            font-size: 2.2rem;
+        }
+        .mini-card-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-    <div id="header-container"></div>
+    
+    <div id="header-container" role="banner"></div>
 
-    <main>
+    <main id="main-content">
         <section class="page-hero experiences-hero">
             <div class="container">
-                <span class="subtitle">Momentos Inolvidables</span>
+                <span class="subtitle">Recuerdos para Siempre</span>
                 <h1>Vive la Experiencia Aura</h1>
+                <p>Curamos actividades únicas que conectan el lujo con la naturaleza y la cultura local.</p>
             </div>
         </section>
 
         <section class="experience-gallery">
             <div class="container">
-                <div class="exp-row">
-                    <div class="exp-img"><img src="https://images.unsplash.com/photo-1544735047-49527377f54c?q=80&w=600" alt="Cena privada"></div>
+                
+                <article class="exp-row fade-up">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1544735047-49527377f54c?q=80&w=800" alt="Cena romántica con velas en la playa" loading="lazy">
+                    </div>
                     <div class="exp-text">
+                        <span class="section-tag">01. Romance</span>
                         <h3>Cenas Bajo las Estrellas</h3>
-                        <p>Organizamos veladas privadas en la playa o en nuestra terraza secreta con menús diseñados por nuestro Chef Ejecutivo.</p>
+                        <p>La experiencia romántica definitiva. Una mesa privada en la arena suave, iluminada solo por antorchas y la luna. Nuestro Chef Ejecutivo diseñará un menú de 5 tiempos personalizado según sus gustos.</p>
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-music"></i> Música en vivo (Violín/Saxofón)</li>
+                            <li><i class="fas fa-wine-glass"></i> Maridaje de Vinos</li>
+                            <li><i class="fas fa-star"></i> Decoración Floral</li>
+                            <li><i class="fas fa-concierge-bell"></i> Mayordomo Privado</li>
+                        </ul>
+                        <a href="https://wa.me/18095550123?text=Hola,%20quisiera%20más%20información%20sobre%20las%20*Cenas%20Privadas*." target="_blank" class="btn-outline-dark" style="margin-top: 20px;">Reservar Velada</a>
                     </div>
-                </div>
-                <div class="exp-row reverse">
-                    <div class="exp-img"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600" alt="Yoga"></div>
+                </article>
+
+                <article class="exp-row reverse fade-up">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800" alt="Mujer haciendo yoga frente al mar al amanecer" loading="lazy">
+                    </div>
                     <div class="exp-text">
+                        <span class="section-tag">02. Conexión</span>
                         <h3>Yoga & Mindfulness</h3>
-                        <p>Sesiones matutinas frente al mar para conectar con tu interior en un entorno de paz absoluta.</p>
+                        <p>Saluda al sol frente al Mar Caribe. Nuestras sesiones matutinas en el deck de madera están diseñadas para alinear cuerpo y mente, guiadas por instructores certificados en Hatha y Vinyasa.</p>
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-sun"></i> Al Amanecer (7:00 AM)</li>
+                            <li><i class="fas fa-leaf"></i> Jugo Detox Post-Sesión</li>
+                            <li><i class="fas fa-users"></i> Grupal o Privado</li>
+                            <li><i class="fas fa-mat"></i> Equipamiento Incluido</li>
+                        </ul>
+                        <a href="https://wa.me/18095550123?text=Hola,%20quisiera%20reservar%20una%20sesión%20de%20*Yoga*." target="_blank" class="btn-outline-dark" style="margin-top: 20px;">Agendar Sesión</a>
                     </div>
+                </article>
+
+                <article class="exp-row fade-up">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1559136555-930d72f18615?q=80&w=800" alt="Yate privado navegando en aguas cristalinas" loading="lazy">
+                    </div>
+                    <div class="exp-text">
+                        <span class="section-tag">03. Aventura</span>
+                        <h3>Navegación Privada</h3>
+                        <p>Descubre calas escondidas inaccesibles por tierra a bordo de nuestro yate privado "Aura One". Una experiencia de libertad absoluta con tripulación dedicada a tu servicio.</p>
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-ship"></i> Yate de 45 pies</li>
+                            <li><i class="fas fa-utensils"></i> Chef a Bordo</li>
+                            <li><i class="fas fa-swimmer"></i> Equipo de Snorkel</li>
+                            <li><i class="fas fa-clock"></i> Medio Día o Día Completo</li>
+                        </ul>
+                        <a href="https://wa.me/18095550123?text=Hola,%20quisiera%20información%20sobre%20el%20*Yate%20Privado*." target="_blank" class="btn-outline-dark" style="margin-top: 20px;">Reservar Yate</a>
+                    </div>
+                </article>
+
+                <h2 class="moments-title fade-up">Momentos Íntimos</h2>
+                
+                <div class="services-grid-detailed">
+                    
+                    <div class="service-block fade-up">
+                        <i class="fas fa-film mini-card-icon"></i>
+                        <h3>Cine en la Playa</h3>
+                        <p>Proyección privada de tus películas favoritas bajo las estrellas, con palomitas gourmet y champagne.</p>
+                    </div>
+
+                    <div class="service-block fade-up" style="transition-delay: 0.1s;">
+                        <i class="fas fa-cocktail mini-card-icon"></i>
+                        <h3>Clase de Mixología</h3>
+                        <p>Aprende a crear cócteles de autor caribeños con nuestro bartender principal en una sesión divertida.</p>
+                    </div>
+
+                    <div class="service-block fade-up" style="transition-delay: 0.2s;">
+                        <i class="fas fa-camera mini-card-icon"></i>
+                        <h3>Sesión de Fotos</h3>
+                        <p>Inmortaliza tu viaje con una sesión profesional de 1 hora aprovechando la luz dorada del atardecer.</p>
+                    </div>
+
                 </div>
+
+                <div class="text-center mt-50 fade-up" style="margin-top: 80px;">
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">¿Deseas personalizar alguna de estas experiencias?</p>
+                    <a href="https://wa.me/18095550123?text=Hola,%20quisiera%20personalizar%20una%20experiencia%20especial." target="_blank" class="btn-primary">Contactar Concierge</a>
+                </div>
+
             </div>
         </section>
     </main>
 
-    <div id="footer-container"></div>
+    <div id="footer-container" role="contentinfo"></div>
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>

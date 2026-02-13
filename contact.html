@@ -3,65 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Aura Stay</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/pages.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Contacta con Aura Stay. Nuestro equipo de concierge está listo para gestionar tu reserva, eventos o peticiones especiales en Cap Cana.">
+    <title>Contacto y Ubicación | Aura Stay Boutique Hotel</title>
+    
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/page.css">
+    
+    <style>
+        /* --- ESTILOS DE MEJORA VISUAL --- */
+        
+        /* Layout Flexbox para dividir Info y Formulario */
+        .flex-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            justify-content: space-between;
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Caja del formulario flotante */
+        .contact-form-box { 
+            flex: 1; 
+            min-width: 300px;
+            background: #fff; 
+            padding: 50px; 
+            border-radius: 4px; 
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08); /* Sombra suave de lujo */
+        }
+
+        /* Estilos de los campos (Inputs) */
+        .form-group { margin-bottom: 20px; }
+        
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark-navy, #1e2d3e);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            background-color: #f9f9f9;
+            border-radius: 2px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            background-color: #fff;
+            border-color: var(--gold, #d4af37);
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Mapa */
+        .map-section { width: 100%; height: 500px; border-top: 1px solid rgba(0,0,0,0.05); }
+        .map-section iframe { width: 100%; height: 100%; border: 0; filter: grayscale(100%) contrast(1.1); transition: 0.5s ease; }
+        .map-section iframe:hover { filter: grayscale(0%); }
+        
+        /* Mensajes de estado */
+        .form-status { margin-top: 15px; font-size: 0.9rem; display: none; padding: 10px; border-radius: 4px; text-align: center;}
+        .success-msg { color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
+        .error-msg { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
+
+        /* Iconos de contacto */
+        .info-item { margin-bottom: 30px; }
+        .info-item strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 5px; }
+        .info-item p { color: #666; font-size: 0.95rem; }
+    </style>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("YSfTemctAQNgYMN7w");
+       })();
+    </script>
 </head>
 <body>
-    <div id="header-container"></div>
+    
+    <div id="header-container" role="banner"></div>
 
-    <main class="contact-page">
-        <div class="container flex-contact">
-            <div class="contact-info">
-                <span class="section-tag">Contáctanos</span>
-                <h1>Estamos a tu disposición</h1>
-                <p>¿Tienes alguna duda o petición especial? Nuestro equipo de concierge está listo para asistirte.</p>
+    <main id="main-content">
+        
+        <section class="page-hero contact-hero">
+            <div class="container">
+                <span class="subtitle">Asistencia Personalizada</span>
+                <h1>Estamos a tu Disposición</h1>
+                <p>Tu mayordomo personal está a solo un mensaje de distancia.</p>
+            </div>
+        </section>
+
+        <section class="contact-page">
+            <div class="container flex-contact">
                 
-                <div class="info-item">
-                    <strong>Dirección</strong>
-                    <p>Av. Paraíso Azul No. 45, Cap Cana, RD</p>
+                <div class="contact-info fade-up">
+                    <span class="section-tag">Hablemos</span>
+                    <h2 style="margin-bottom: 20px; font-family: 'Playfair Display', serif;">¿Cómo podemos ayudarte?</h2>
+                    <p style="margin-bottom: 40px; color: var(--text-muted, #666); line-height: 1.8;">Desde gestionar tu traslado privado hasta preparar una sorpresa romántica. Estamos aquí para cumplir cada deseo.</p>
+                    
+                    <div class="info-item">
+                        <strong><i class="fas fa-map-marker-alt" style="color: var(--gold, #d4af37); margin-right: 10px;"></i> Dirección</strong>
+                        <p>Marina Cap Cana, Punta Cana 23000, República Dominicana</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <strong><i class="fas fa-envelope" style="color: var(--gold, #d4af37); margin-right: 10px;"></i> Concierge Digital</strong>
+                        <p><a href="mailto:concierge@aurastay.com" style="text-decoration: none; color: inherit;">concierge@aurastay.com</a></p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <strong><i class="fas fa-phone" style="color: var(--gold, #d4af37); margin-right: 10px;"></i> Reservas & WhatsApp</strong>
+                        <p><a href="tel:+18095550123" style="text-decoration: none; color: inherit;">+1 (809) 555-0123</a></p>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <strong>Email</strong>
-                    <p>hello@aurastay.com</p>
-                </div>
-                <div class="info-item">
-                    <strong>Teléfono</strong>
-                    <p>+1 (809) 555-0123</p>
-                </div>
-            </div>
 
-            <div class="contact-form-box">
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Asunto</label>
-                        <select>
-                            <option>Información General</option>
-                            <option>Reservas</option>
-                            <option>Eventos</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Mensaje</label>
-                        <textarea rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
-                </form>
+                <div class="contact-form-box fade-up" style="transition-delay: 0.2s;">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="user_name">Nombre Completo</label>
+                            <input type="text" id="user_name" name="user_name" required placeholder="Ej. Roberto Alessandro">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="user_email">Correo Electrónico</label>
+                            <input type="email" id="user_email" name="user_email" required placeholder="Ej. roberto@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="booking">Consultar Disponibilidad</option>
+                                <option value="concierge">Solicitud Especial</option>
+                                <option value="events">Eventos / Bodas</option>
+                                <option value="general">Información General</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Cuéntanos los detalles..."></textarea>
+                        </div>
+
+                        <div class="form-group" style="display: flex; align-items: flex-start; gap: 10px; margin-top: 20px;">
+                            <input type="checkbox" id="policy" name="privacy_policy" value="Aceptada" required style="width: auto; margin-top: 4px; accent-color: var(--gold, #d4af37);">
+                            <label for="policy" style="font-size: 0.8rem; font-weight: 400; cursor: pointer; margin-bottom: 0;">He leído y acepto la política de privacidad.</label>
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="btn-submit" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Enviar Solicitud</button>
+                        
+                        <p class="form-status success-msg" id="success-msg">¡Mensaje enviado! Nos pondremos en contacto pronto.</p>
+                        <p class="form-status error-msg" id="error-msg">Hubo un error. Por favor intenta de nuevo.</p>
+                    </form>
+                </div>
+
             </div>
-        </div>
+        </section>
+
+        <section class="map-section fade-up">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.576086774616!2d-68.42398468453476!3d18.45752998744655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea8909848520f33%3A0x67a39775f284d63!2sMarina%20Cap%20Cana!5e0!3m2!1ses!2sdo!4v1675283451234!5m2!1ses!2sdo" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
     </main>
 
-    <div id="footer-container"></div>
+    <div id="footer-container" role="contentinfo"></div>
     <script src="assets/js/main.js"></script>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que la página se recargue
+            
+            const btn = document.getElementById('btn-submit');
+            const successMsg = document.getElementById('success-msg');
+            const errorMsg = document.getElementById('error-msg');
+            
+            btn.innerHTML = 'Enviando...';
+            btn.disabled = true;
+
+            // Reemplaza "YOUR_SERVICE_ID" y "YOUR_TEMPLATE_ID" con los de tu cuenta EmailJS
+            emailjs.sendForm('service_4xjpd4h', 'template_h10wvx5', this)
+                .then(function() {
+                    console.log('SUCCESS!');
+                    btn.innerHTML = 'Mensaje Enviado';
+                    successMsg.style.display = 'block';
+                    errorMsg.style.display = 'none';
+                    document.getElementById('contact-form').reset();
+                    
+                    // Resetear el botón después de 3 segundos
+                    setTimeout(() => {
+                        btn.innerHTML = 'Enviar Solicitud';
+                        btn.disabled = false;
+                        successMsg.style.display = 'none';
+                    }, 5000);
+
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    btn.innerHTML = 'Intentar de nuevo';
+                    btn.disabled = false;
+                    errorMsg.style.display = 'block';
+                    successMsg.style.display = 'none';
+                });
+        });
+    </script>
 </body>
 </html>
