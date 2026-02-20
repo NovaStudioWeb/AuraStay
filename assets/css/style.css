@@ -618,3 +618,133 @@ img { max-width: 100%; display: block; }
         font-size: 25px;
     }
 }
+
+/* --- ESTILOS Y ANIMACIONES PARA EL LOGO COMBINADO --- */
+
+.logo-container {
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    text-decoration: none;
+    /* Suaviza cualquier cambio en el contenedor completo */
+    transition: all 0.3s ease; 
+}
+
+.main-logo {
+    height: 45px; 
+    width: auto;
+    display: block;
+    /* Transición con un efecto de "rebote" muy sutil y elegante */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dark-navy); 
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.logo-text span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: var(--gold); 
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-left: 4px;
+    /* Suaviza el cambio de color y brillo */
+    transition: all 0.3s ease; 
+}
+
+/* === ANIMACIÓN AL PASAR EL RATÓN (HOVER) === */
+
+.logo-container:hover .main-logo {
+    /* La imagen crece un 8% y gira apenas 2 grados a la izquierda */
+    transform: scale(1.08) rotate(-2deg); 
+}
+
+.logo-container:hover .logo-text span {
+    /* El dorado se vuelve un poquito más brillante y emite un resplandor suave */
+    color: #f0d171; 
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+/* --- ESTILOS Y ANIMACIONES PARA LA BARRA INFERIOR (FOOTER BOTTOM) --- */
+
+.footer-bottom {
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Línea divisoria muy sutil */
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6); /* Texto en tono apagado elegante */
+}
+
+.footer-bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Animación para enlaces legales (Privacidad / Términos) */
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.legal-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* El efecto de la línea que aparece por debajo */
+.legal-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 50%;
+    background-color: var(--gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.legal-links a:hover {
+    color: #ffffff; /* El texto se ilumina a blanco */
+}
+
+.legal-links a:hover::after {
+    width: 100%; /* La línea dorada se dibuja desde el centro */
+}
+
+/* --- ANIMACIÓN ESPECIAL PARA NOVA STUDIO WEB --- */
+.developer-credit {
+    margin: 0;
+}
+
+.nova-link {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nova-link:hover {
+    color: var(--gold);
+    transform: translateY(-3px) scale(1.05); /* Se eleva y crece un poquito */
+    text-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); /* Resplandor dorado de lujo */
+}
+
+/* Ajustes para que en celular todo quede bien centrado */
+@media (max-width: 768px) {
+    .footer-bottom-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}

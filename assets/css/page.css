@@ -223,3 +223,38 @@
     .service-block { padding: 30px 20px; }
     .contact-info h1 { font-size: 2.5rem; }
 }
+
+/* --- ANIMACIONES PARA LA COLUMNA DE CONTACTO EN FOOTER --- */
+
+/* 1. Transiciones base para que el movimiento sea fluido */
+.contact-list li, 
+.contact-list li a, 
+.contact-list li i {
+    transition: all 0.3s ease;
+}
+
+/* 2. Efecto Hover en los elementos de la lista */
+.contact-list li:hover {
+    transform: translateX(8px); /* Se desliza suavemente hacia la derecha */
+}
+
+/* 3. El icono y el texto se iluminan en dorado al pasar el ratón */
+.contact-list li:hover i,
+.contact-list li:hover a,
+.contact-list li:hover span {
+    color: var(--gold) !important; /* Usamos !important para sobrescribir el estilo en línea (inline) del HTML */
+}
+
+/* 4. Transiciones base para los iconos de tarjetas de crédito */
+.trust-icons i {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+    cursor: pointer;
+    display: inline-block; /* Necesario para que el transform funcione perfectamente */
+}
+
+/* 5. Efecto Hover en los métodos de pago */
+.trust-icons i:hover {
+    transform: scale(1.2) translateY(-4px); /* El icono crece un poco y da un pequeño "salto" hacia arriba */
+    color: var(--gold); /* Cambia al dorado de la marca */
+}
+
