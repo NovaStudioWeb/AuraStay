@@ -258,3 +258,96 @@
     color: var(--gold); /* Cambia al dorado de la marca */
 }
 
+/* ==========================================================================
+   ANIMACIONES PREMIUM PARA EL NAVBAR (AURA STAY)
+   ========================================================================== */
+
+/* --- 1. ENLACES DEL MENÚ (Línea central dorada) --- */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+/* Creamos la línea invisible debajo del texto */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px; /* Ajusta la distancia entre el texto y la línea */
+    left: 50%;
+    background-color: var(--gold, #d4af37);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva muy elegante */
+    transform: translateX(-50%);
+}
+
+/* Efecto al pasar el cursor */
+.nav-link:hover {
+    color: var(--gold, #d4af37) !important;
+}
+
+.nav-link:hover::after {
+    width: 100%; /* La línea crece hasta cubrir el texto */
+}
+
+/* Opcional: Para mantener el enlace activo (la página en la que estás) resaltado */
+.nav-link.active::after {
+    width: 100%;
+}
+.nav-link.active {
+    color: var(--gold, #d4af37);
+    font-weight: 600;
+}
+
+
+/* --- 2. BOTÓN DE RESERVA (Levitación y resplandor) --- */
+.btn-book-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto de rebote premium */
+}
+
+.btn-book-nav:hover {
+    transform: translateY(-3px); /* Se eleva ligeramente */
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25); /* Sombra dorada */
+    background-color: var(--gold, #d4af37); /* Aseguramos que el fondo sea el dorado principal */
+    color: #ffffff; /* Texto blanco en hover */
+    border-color: var(--gold, #d4af37);
+}
+
+
+/* --- 3. ICONO DE MENÚ MÓVIL (Interacción de las barras) --- */
+.mobile-menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 5px auto;
+    background-color: var(--dark-navy, #1e2d3e); /* Color de las barras */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto Hover: Las barras se separan un poco como si "respiraran" y se pintan de dorado */
+.mobile-menu-toggle:hover .bar:nth-child(1) {
+    transform: translateY(-2px);
+    background-color: var(--gold, #d4af37);
+}
+.mobile-menu-toggle:hover .bar:nth-child(2) {
+    background-color: var(--gold, #d4af37);
+}
+.mobile-menu-toggle:hover .bar:nth-child(3) {
+    transform: translateY(2px);
+    background-color: var(--gold, #d4af37);
+}
+
+/* Si tu JS le añade una clase 'active' al menú al hacer click, esto lo convierte en una "X" */
+.mobile-menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-toggle.active .bar:nth-child(2) {
+    opacity: 0; /* La barra del medio desaparece */
+}
+.mobile-menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
