@@ -1,1 +1,88 @@
+# ======================================================================
+# CONFIGURACIÓN PREMIUM PARA AURA STAY (HTACCESS)
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# 1. SEGURIDAD BÁSICA
+# ----------------------------------------------------------------------
+# Evita que los visitantes vean la lista de archivos si falta el index.html
+Options -Indexes
+
+# Evitar que se lea este mismo archivo .htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# ----------------------------------------------------------------------
+# 2. FORZAR HTTPS (Conexión Segura)
+# ----------------------------------------------------------------------
+# Redirige todo el tráfico de http:// a https:// (Requisito para sitios de lujo)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 3. URLS LIMPIAS (Quitar el ".html" de los enlaces)
+# ----------------------------------------------------------------------
+# Permite entrar a aurastay.com/contacto en lugar de aurastay.com/contacto.html
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 4. COMPRESIÓN GZIP (Carga Ultra Rápida)
+# ----------------------------------------------------------------------
+# Comprime el código antes de enviarlo al navegador (Reduce el peso hasta un 70%)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 5. CACHÉ DEL NAVEGADOR (Mejora en Google PageSpeed)
+# ----------------------------------------------------------------------
+# Le dice al navegador del usuario que guarde las imágenes y estilos 
+# para que las siguientes páginas abran de forma instantánea.
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Imágenes y recursos multimedia (Caché de 1 año)
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Fuentes tipográficas (Caché de 1 año)
+    ExpiresByType font/woff2 "access plus 1 year"
+    
+    # CSS y JavaScript (Caché de 1 mes)
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    
+    # HTML (No cachear para que siempre vean los cambios recientes)
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 6. PÁGINA DE ERROR PERSONALIZADA
+# ----------------------------------------------------------------------
+# Si alguien entra a un enlace roto, lo enviamos a una página tuya en vez del error feo del servidor.
 ErrorDocument 404 /404.html
