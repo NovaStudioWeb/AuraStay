@@ -48,16 +48,22 @@
             </div>
 
             <div class="footer-column">
-                <h4>Aura Newsletter</h4>
-                <p class="news-desc">Únete a nuestra lista exclusiva para recibir novedades de diseño.</p>
-                <form class="footer-form">
+                <h4>Aura VIP Club</h4>
+                <p class="news-desc">Únete a nuestra comunidad exclusiva de WhatsApp para ofertas secretas y novedades.</p>
+                
+                <form id="newsletter-form" class="footer-form">
                     <div class="input-group">
-                        <input type="email" placeholder="Email" required aria-label="Tu dirección de correo electrónico">
-                        <button type="submit" aria-label="Suscribirse al boletín"><i class="fas fa-paper-plane"></i></button>
+                        <input type="email" name="subscriber_email" placeholder="Tu Email" required aria-label="Tu dirección de correo electrónico">
+                        <button type="submit" id="newsletter-btn" aria-label="Unirse al grupo">
+                            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i>
+                        </button>
                     </div>
                     <label class="checkbox-label" style="display: flex; gap: 8px; align-items: start; margin-top: 10px; font-size: 0.8rem;">
-                        <input type="checkbox" required style="margin-top: 3px;"> <span>Acepto la política de privacidad</span>
+                        <input type="checkbox" required style="margin-top: 3px;"> 
+                        <span>Acepto la política de privacidad</span>
                     </label>
+                    
+                    <p id="nl-success-msg" style="display: none; color: #25d366; font-size: 0.85rem; margin-top: 10px; font-weight: 600;">¡Redirigiendo a WhatsApp...!</p>
                 </form>
             </div>
         </div>
